@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "Pornhub Video Downloader plugin",
+	"version": "2.0",
+	"description": "Obtain the video interface information by injecting JS into the Pornhub video page and extract the link to download. Xvideos video download is also supported from v2.0.",
+	"author": "Zgao and Balduzz",
+	"permissions": [
+		"downloads"
+	],
+	"icons":
+	{
+		"16":"./img/ph16.png",
+		"48": "./img/ph48.png",
+		"128": "./img/ph128.png"
+	},
+	"browser_action":
+	{
+		"default_icon": "./img/ph16.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": 
+	[
+		{
+			"matches": ["https://*.pornhub.com/view_video.php?viewkey=*",
+			"https://*.pornhubpremium.com/view_video.php?viewkey=*",
+			"https://www.xvideos.com/*"],
+			"js": ["content-script.js"]
+		}
+	],
+	"browser_specific_settings": {
+		"gecko": {
+		  "id": "pornhubdownloaderplugin@example.com"
+		}
+	  }
+	  
+}
